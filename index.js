@@ -57,7 +57,7 @@ const saltRounds = 10;
 
 // ดึงข้อมูล Users ทั้งหมด
 app.get('/getUsers', (req, res) => {
-    connection.query('SELECT user_id, full_name, email, role, chronic_disease, status, created_at, updated_at FROM users', (err, results) => {
+    connection.query('SELECT user_id, fullname_user, email, role, chronic_disease, status, created_at, updated_at FROM users', (err, results) => {
         if (err) return res.status(500).json({ error: true, msg: err.message });
         res.json({ error: false, data: results });
     });
@@ -65,7 +65,7 @@ app.get('/getUsers', (req, res) => {
 
 // ดึงข้อมูลผู้ใช้ตาม user_id
 app.get('/getUser/:id', (req, res) => {
-    connection.query('SELECT user_id, full_name, email, role, chronic_disease, status, created_at, updated_at FROM users WHERE user_id = ?', [req.params.id], (err, results) => {
+    connection.query('SELECT user_id, fullname_user, email, role, chronic_disease, status, created_at, updated_at FROM users WHERE user_id = ?', [req.params.id], (err, results) => {
         if (err) return res.status(500).json({ error: true, msg: err.message });
         res.json({ error: false, data: results.length ? results[0] : null, msg: results.length ? "User found" : "User not found" });
     });
