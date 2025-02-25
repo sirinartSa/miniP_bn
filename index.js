@@ -40,7 +40,7 @@ app.listen(port, hostname, () => {
 
 app.get('/', (req, res) => {
     res.json({
-        "Name": "project lab 4",
+        "Name": "Miniproject",
         "Author": "Sirinart and Jureerat",
         "APIs": [
             { "api_name": "/getUsers/", "method": "get" },
