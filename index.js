@@ -39,10 +39,10 @@ app.listen(port, hostname, () => {
 
 
 app.get('/', (req, res) => {
-    res.json({
-        "Name": "Miniproject",
-        "Author": "Sirinart and Jureerat",
-        "APIs": [
+    res.render('index', {
+        Name: "Miniproject",
+        Author: "Sirinart and Jureerat",
+        APIs: [
             { "api_name": "/getUsers/", "method": "get" },
             { "api_name": "/getUser/:id", "method": "get" },
             { "api_name": "/addUser/", "method": "post" },
@@ -53,10 +53,10 @@ app.get('/', (req, res) => {
             { "api_name": "/getAppointments/", "method": "get" },
             { "api_name": "/addAppointment/", "method": "post" },
             { "api_name": "/editAppointment/:appointmentId", "method": "put" },
-            { "api_name": "/deleteAppointment/:appointmentId", "method": "delete" }  
+            { "api_name": "/deleteAppointment/:appointmentId", "method": "delete" }
         ]
     });
-  });
+});
 
 app.get('/getUsers', (req, res) => {
     connection.query('SELECT user_id, fullname_user, email, role, status FROM users', (err, results) => {
